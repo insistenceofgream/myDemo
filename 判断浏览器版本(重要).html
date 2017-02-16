@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script type="text/javascript">
+			function checkPlugin(pname){
+				var plugin=navigator.plugins;
+				for (var i=0;i<plugin.length;i++)
+				{
+					if (plugin[i].name===pname)
+					{
+						alert("已经安装"+pname+"插件");
+						return i;
+					}
+				}
+				alert("未安装"+pname+"插件,请下载.");
+			}
+			//checkPlugin("Shockwave Flash");
+			//checkPlugin("Tencent QQ");
+			//checkPlugin("Chrome PDF Viewer");
+			(function(){
+				var browser="unknown",version="known";
+				var ua=navigator.userAgent;
+				if(ua.indexOf("Firefox")!=-1){browser="Firefox";}
+				else if(ua.indexOf("MSIE")!=-1){browser="MSIE";}
+				else if(ua.indexOf("OPR")!=-1){browser="OPR";}
+				else if(ua.indexOf("Chrome")!=-1){browser="Chrome";}
+				else if(ua.indexOf("Safari")!=-1){browser="Safari";}
+				document.write("<br>浏览器:"+browser);
+				if (browser!=="unknown")
+				{
+					var i=ua.indexOf(browser)+browser.length+1;
+					version=parseFloat(ua[i]).toFixed(2);
+					document.write("<br>版本:"+version);
+				}
+			})();
+		</script>
+ </body>
+</html>
