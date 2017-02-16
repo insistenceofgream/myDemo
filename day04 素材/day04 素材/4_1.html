@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>倒计时</title>
+  <meta charset="utf-8"/>
+ </head>
+
+ <body>
+	<h1>距离放学还有<span id="time"></span></h1>
+	<button onclick="stop(this)">||</button>
+	<script>
+		function task(){
+			var now=new Date();
+			var target=new Date("2016/11/16/18:00:00");
+			var s=Math.floor((target-now)/1000);
+			var hour=Math.floor(s/3600);
+			console.log(hour);
+			if (hour<10)
+			{
+				hour="0"+hour;
+			}
+			var m=parseInt((s%3600)/60);
+			if (m<10)
+			{
+				m="0"+m;
+			}
+			var lefts=s%60;
+			if (lefts<10)
+			{
+				lefts="0"+lefts;
+			}
+			document.getElementById("time").innerHTML=hour+"时"+m+"分"+lefts+"秒";
+		}
+		//启动定时器
+		var timer=setInterval(task,1000);
+
+		function stop(btn){
+			if(btn.innerHTML=="||"){
+				clearInterval(timer);
+				btn.innerHTML="|>";}
+			else{
+				timer=setInterval(task,1000);
+				btn.innerHTML="||";
+			}
+		}
+	</script>
+ </body>
+</html>
